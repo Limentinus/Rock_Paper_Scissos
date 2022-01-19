@@ -37,3 +37,4 @@ if ((playerSelection.toLowerCase() === "rock") && computerSelection === "Scissor
 }
 
 alert(game());
+alert(`The Computer chose ${computerSelection}`);
