@@ -13,7 +13,7 @@ let playerSelection = prompt("Rock, Paper or Scissors?");
 let computerSelection = computerPlay();
 console.log(computerSelection);
 
-function game() {
+function playRound() {
     
 
 if ((playerSelection.toLowerCase() === "rock") && computerSelection === "Scissors") {
@@ -36,5 +36,5 @@ if ((playerSelection.toLowerCase() === "rock") && computerSelection === "Scissor
  
 }
 
-alert(game());
+alert(playRound());
 alert(`The Computer chose ${computerSelection}`);
