@@ -1,3 +1,9 @@
+let playerSelection;
+let computerSelection;
+let computerWinCount = 0;
+let playerWinCount = 0;
+// computerPlay() generates a random number between 1 and 3 and assigns each
+// number a value of either Rock, Paper or Scissors
 function computerPlay() {
     let playNumber = Math.floor(Math.random() * 3) + 1;
     if (playNumber === 1) {
@@ -9,32 +15,71 @@ function computerPlay() {
     }
 
 }
-let playerSelection = prompt("Rock, Paper or Scissors?");
-let computerSelection = computerPlay();
-console.log(computerSelection);
+
+
 
 function playRound() {
+
+    playerSelection = prompt("Rock, Paper or Scissors?");
+    computerSelection = computerPlay();
+    if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
+        playerWinCount = ++playerWinCount;
+        return (`You Win! The computer chose Scissors. Rock beats Scissors. The score is ${playerWinCount}, ${computerWinCount}`);
+    } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
+        computerWinCount = ++computerWinCount;
+        return (`You Lose! The computer chose Paper. Paper beats Rock.The score is ${playerWinCount}, ${computerWinCount}`);
+    } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
+        playerWinCount = ++playerWinCount;
+        return (`You Win! The computer chose Rock. Paper beats Rock. The score is ${playerWinCount}, ${computerWinCount}`); 
+    } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
+        computerWinCount = ++computerWinCount;
+        return (`You Lose! The computer chose Scissors. Scissors beat Paper. The score is ${playerWinCount}, ${computerWinCount}`);
+    } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
+        computerWinCount = ++computerWinCount;
+        return (`You Lose! The computer chose Rock. Rock beats Scissors.The score is ${playerWinCount}, ${computerWinCount}`);
+    } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
+        playerWinCount = ++playerWinCount;
+        return (`You Win! The computer chose Paper. Scissors beat Paper. The score is ${playerWinCount}, ${computerWinCount}`);
+    } else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+        return (`Its a tie. Try again. The score is ${playerWinCount}, ${computerWinCount}`);
+    } else {
+        return ("You must have misspellt something.");
+    }
+    console.log(playerWinCount);
+    console.log(computerWinCount);
+}
+
+
+//the return message from playRound has to show up after each game
+//and winCounter has to be updated.
+
+
+
+
+
+
+
+
+// game executes playRound 5 times and then returns a message with the win or loss and the 
+// win/loss ratio
     
+function game() {
+    
+    console.log(playRound());
+   
+    console.log(playRound());
+    
+    console.log(playRound());
+    
+    console.log(playRound());
+    
+    console.log(playRound());
 
-if ((playerSelection.toLowerCase() === "rock") && computerSelection === "Scissors") {
-    return ("You Win! Rock beats Scissors.");
-} else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
-    return ("You Lose! Paper beats Rock.");
-} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
-    return ("You Win! Paper beats Rock."); 
-} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
-    return ("You Lose! Scissors beat Paper.");
-} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
-    return ("You Lose! Rock beats Scissors.");
-} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
-    return ("You Win! Scissors beat Paper.");
-} else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
-    return ("Its a tie. Try again.");
-} else {
-    return ("You must have misspellt something.");
-}
- 
-}
+    if (playerWinCount > computerWinCount) {
+        return (`You win the game. The score is:${playerWinCount}, ${computerWinCount}`);
+    } else if (computerWinCount > playerWinCount) {
+        return (`You lose the game.The score is:${playerWinCount}, ${computerWinCount}`);
 
-alert(playRound());
-alert(`The Computer chose ${computerSelection}`);
+    }
+}
+console.log(game());
