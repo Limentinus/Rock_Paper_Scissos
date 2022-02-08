@@ -1,7 +1,10 @@
 body {
+    height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: #5A236C;
+    background-image: linear-gradient( #277913, #e9e627);
 }
 
 header {
@@ -14,12 +17,12 @@ header {
 
 }
 
-.playBtn {
+#playBtn {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
     gap: 50px;
+    height: 200px;
 
 }
 
@@ -27,22 +30,51 @@ button {
     height: 150px;
     width: 150px;
     color: #2d2727;
+    background-image: linear-gradient(to bottom right, #ac74fa, #e9e627);
     background-color: #ac74fa;
     font-size: 25px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 50%;
     border: 3px ridge #666;
-    transition: all 0.3s;
-    box-shadow: 0 9px #2d2727
+    transition: all 0.1s;
+    box-shadow: 0 5px #2d2727
 }
 
-/*button:hover {
+button:hover {
     transform: scale(1.1);
 
-}*/
+}
 
 button:active {
-    box-shadow: 0 5px #666;
+    box-shadow: 0 3px #666;
     transform: translateY(4px);
 }
 
+#results {
+    display: flex;
+    justify-content: center;
+    
+}
+
+#score {
+    align-self: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+#compChoice {
+    align-self: center;
+    margin-bottom: 20px;
+    height: 80px;
+}
+
+#roundResult {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin-top: 10px;
+    width: 290px;
+    height: 55px;
+}
